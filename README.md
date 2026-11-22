@@ -10,6 +10,7 @@ They scale with the player, stay within each zone's levels, and are themed after
   <img src="https://img.shields.io/badge/WotLK-3.3.5a-8b5cf6" alt="WotLK 3.3.5a">
   <img src="https://img.shields.io/badge/quests-86-2f6b3a" alt="86 quests">
   <img src="https://img.shields.io/badge/license-AGPL--3.0-b8862b" alt="AGPL-3.0">
+  <a href="https://github.com/Tntdruid"><img src="https://img.shields.io/badge/author-Tntdruid-c0392b?logo=github" alt="Author: Tntdruid"></a>
 </p>
 
 ---
