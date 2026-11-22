@@ -13,6 +13,7 @@ They scale with the player, stay within each zone's levels, and are themed after
 </p>
 
 ---
+Author: Tntdruid
 
 ## What it adds
 
