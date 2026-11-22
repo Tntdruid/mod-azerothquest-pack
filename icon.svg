@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="42%" r="62%">
+      <stop offset="0" stop-color="#3a2a17"/>
+      <stop offset="1" stop-color="#140d06"/>
+    </radialGradient>
+    <linearGradient id="parchment" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f3dfae"/>
+      <stop offset="1" stop-color="#d3b376"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffe27a"/>
+      <stop offset="0.55" stop-color="#f2b31b"/>
+      <stop offset="1" stop-color="#a86a06"/>
+    </linearGradient>
+  </defs>
+  <circle cx="128" cy="128" r="124" fill="url(#bg)" stroke="#b8862b" stroke-width="6"/>
+  <circle cx="128" cy="128" r="112" fill="none" stroke="#5c4321" stroke-width="2"/>
+  <!-- scroll -->
+  <rect x="62" y="66" width="132" height="128" rx="6" fill="url(#parchment)" stroke="#7a5a2c" stroke-width="3"/>
+  <rect x="52" y="56" width="152" height="20" rx="10" fill="#c9a463" stroke="#7a5a2c" stroke-width="3"/>
+  <rect x="52" y="184" width="152" height="20" rx="10" fill="#c9a463" stroke="#7a5a2c" stroke-width="3"/>
+  <g stroke="#9c7a45" stroke-width="4" stroke-linecap="round" opacity="0.55">
+    <line x1="80" y1="96" x2="110" y2="96"/>
+    <line x1="80" y1="114" x2="104" y2="114"/>
+    <line x1="80" y1="132" x2="110" y2="132"/>
+    <line x1="80" y1="150" x2="100" y2="150"/>
+    <line x1="80" y1="168" x2="108" y2="168"/>
+  </g>
+  <!-- quest mark -->
+  <path d="M150 84 L172 84 L166 146 L156 146 Z" fill="url(#gold)" stroke="#5a3a02" stroke-width="3" stroke-linejoin="round"/>
+  <circle cx="161" cy="164" r="11" fill="url(#gold)" stroke="#5a3a02" stroke-width="3"/>
+  <!-- the pack's "+" -->
+  <circle cx="196" cy="196" r="26" fill="#2f6b3a" stroke="#b8862b" stroke-width="4"/>
+  <path d="M196 182 V210 M182 196 H210" stroke="#f3dfae" stroke-width="7" stroke-linecap="round"/>
+</svg>
