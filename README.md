@@ -2,13 +2,13 @@
 
 <h1 align="center">AzerothQuest Quest Pack</h1>
 
-<p align="center">86 new quests for AzerothCore (WotLK 3.3.5a) in the zones where the levelling route runs thin.<br>
+<p align="center">100 new quests for AzerothCore (WotLK 3.3.5a) in the zones where the levelling route runs thin.<br>
 They scale with the player, stay within each zone's levels, and are themed after their zone and giver.</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/AzerothCore-module-1f6feb" alt="AzerothCore module">
   <img src="https://img.shields.io/badge/WotLK-3.3.5a-8b5cf6" alt="WotLK 3.3.5a">
-  <img src="https://img.shields.io/badge/quests-86-2f6b3a" alt="86 quests">
+  <img src="https://img.shields.io/badge/quests-100-2f6b3a" alt="100 quests">
   <img src="https://img.shields.io/badge/license-AGPL--3.0-b8862b" alt="AGPL-3.0">
   <a href="https://github.com/Tntdruid"><img src="https://img.shields.io/badge/author-Tntdruid-c0392b?logo=github" alt="Author: Tntdruid"></a>
 </p>
@@ -18,12 +18,12 @@ Author: Tntdruid
 
 ## What it adds
 
-- **86 quests** (IDs 900001-900086) in 19 zones of the Eastern Kingdoms and Kalimdor, for both factions where the
+- **100 quests** (IDs 900001-900100) in 20 zones of the Eastern Kingdoms and Kalimdor, for both factions where the
   zone has a hub for each, from quest givers already standing there.
 - **Scaling**: every quest has the player's level (QuestLevel -1), with XP and money by level
   (`RewardXPDifficulty` 5, `RewardMoneyDifficulty` 5 from `quest_money_reward`). MinLevel and MaxLevel keep each
   quest within its zone's levels.
-- **Group friendly quest items** (items 900001-900026): quest-required, and multi-drop, so everyone in the group
+- **Group friendly quest items** (items 900001-900030): quest-required, and multi-drop, so everyone in the group
   with the quest loots their own from each kill. Playerbots included.
 - **World map areas** (`quest_poi`): where to kill or loot, and where to hand in, as for the game's own quests.
 - Only mobs no other quest uses (or uses only for a drop), so the pack adds content instead of competing with it.
@@ -67,7 +67,7 @@ python tools/build_quest_pack.py tools/specs/western_plaguelands.py data/sql/db-
 
 🔵 Alliance &nbsp; 🔴 Horde &nbsp; 🟢 Both factions &nbsp; · &nbsp; Levels: the range a quest can be taken in (it scales to the player within it).
 
-### Eastern Kingdoms (46 quests)
+### Eastern Kingdoms (60 quests)
 
 <details>
 <summary><b>Alterac Mountains</b> &nbsp;·&nbsp; 6 quests &nbsp;·&nbsp; levels 31-42</summary>
@@ -90,7 +90,7 @@ python tools/build_quest_pack.py tools/specs/western_plaguelands.py data/sql/db-
 |---|---|---|:---:|
 | **Creeper Venom** <sub>900067</sub> | Doctor Draxlegauge | 🟢 Both | 31-40 |
 | **Highland Hunt** <sub>900063</sub> | Captain Nials | 🔵 Alliance | 31-40 |
-| **Highland Hunt** <sub>900064</sub> | Tor'gan | 🔴 Horde | 31-40 |
+| **Highland Hunt** <sub>900064</sub> | Tor\'gan | 🔴 Horde | 31-40 |
 | **Drywhisker Diggers** <sub>900065</sub> | Skuerto | 🔵 Alliance | 33-42 |
 | **Drywhisker Diggers** <sub>900066</sub> | Drum Fel | 🔴 Horde | 33-42 |
 
@@ -129,7 +129,7 @@ python tools/build_quest_pack.py tools/specs/western_plaguelands.py data/sql/db-
 | **Witherbark Cruelty** <sub>900052</sub> | Huntsman Markhor | 🔴 Horde | 40-49 |
 | **Owlbeast Plumage** <sub>900053</sub> | Rhapsody Shindigger | 🟢 Both | 41-49 |
 | **Vilebranch Raiders** <sub>900054</sub> | Agnar Beastamer | 🔵 Alliance | 44-52 |
-| **Vilebranch Raiders** <sub>900055</sub> | Otho Moji'ko | 🔴 Horde | 44-52 |
+| **Vilebranch Raiders** <sub>900055</sub> | Otho Moji\'ko | 🔴 Horde | 44-52 |
 
 </details>
 
@@ -150,13 +150,13 @@ python tools/build_quest_pack.py tools/specs/western_plaguelands.py data/sql/db-
 
 | Quest | Giver | Faction | Levels |
 |---|---|---|:---:|
-| **Felbeast Hides** <sub>900008</sub> | Kum'isha the Collector | 🟢 Both | 47-56 |
-| **Scorpok Menace** <sub>900009</sub> | Kum'isha the Collector | 🟢 Both | 47-56 |
+| **Felbeast Hides** <sub>900008</sub> | Kum\'isha the Collector | 🟢 Both | 47-56 |
+| **Scorpok Menace** <sub>900009</sub> | Kum\'isha the Collector | 🟢 Both | 47-56 |
 
 </details>
 
 <details>
-<summary><b>Western Plaguelands</b> &nbsp;·&nbsp; 8 quests &nbsp;·&nbsp; levels 49-55</summary>
+<summary><b>Western Plaguelands</b> &nbsp;·&nbsp; 14 quests &nbsp;·&nbsp; levels 49-58</summary>
 
 | Quest | Giver | Faction | Levels |
 |---|---|---|:---:|
@@ -168,6 +168,12 @@ python tools/build_quest_pack.py tools/specs/western_plaguelands.py data/sql/db-
 | **Mist and Venom** <sub>900086</sub> | Apothecary Dithers | 🔴 Horde | 49-55 |
 | **The Shambling Dead** <sub>900080</sub> | Commander Ashlam Valorfist | 🔵 Alliance | 50-55 |
 | **The Shambling Dead** <sub>900084</sub> | High Executor Derrington | 🔴 Horde | 50-55 |
+| **Fangs of the Carrion Lurkers** <sub>900088</sub> | High Priestess MacDonnell | 🔵 Alliance | 51-56 |
+| **Fangs of the Carrion Lurkers** <sub>900090</sub> | Apothecary Dithers | 🔴 Horde | 51-56 |
+| **Rest for the Fallen** <sub>900087</sub> | Commander Ashlam Valorfist | 🔵 Alliance | 51-56 |
+| **Rest for the Fallen** <sub>900089</sub> | High Executor Derrington | 🔴 Horde | 51-56 |
+| **The Weeping Cave** <sub>900091</sub> | Alchemist Arbington | 🔵 Alliance | 52-58 |
+| **The Weeping Cave** <sub>900092</sub> | Apothecary Dithers | 🔴 Horde | 52-58 |
 
 </details>
 
@@ -182,6 +188,22 @@ python tools/build_quest_pack.py tools/specs/western_plaguelands.py data/sql/db-
 | **Obsidian Cores** <sub>900018</sub> | Tinkee Steamboil | 🟢 Both | 51-58 |
 | **Blackrock Vanguard** <sub>900015</sub> | Marshal Maxwell | 🔵 Alliance | 52-58 |
 | **Reaver Scrap** <sub>900020</sub> | Maxwort Uberglint | 🟢 Both | 52-58 |
+
+</details>
+
+<details>
+<summary><b>Eastern Plaguelands</b> &nbsp;·&nbsp; 8 quests &nbsp;·&nbsp; levels 53-60</summary>
+
+| Quest | Giver | Faction | Levels |
+|---|---|---|:---:|
+| **Hunger in the Plaguewood** <sub>900094</sub> | Leonid Barthalomew the Revered | 🟢 Both | 53-60 |
+| **The Scourge Muster** <sub>900093</sub> | Lord Maxwell Tyrosus | 🟢 Both | 53-60 |
+| **Stone Wings over Darrowshire** <sub>900095</sub> | Carlin Redpath | 🟢 Both | 54-60 |
+| **Corin's Crossing** <sub>900096</sub> | Lord Maxwell Tyrosus | 🟢 Both | 55-60 |
+| **Samples of Living Decay** <sub>900097</sub> | Smokey LaRue | 🟢 Both | 55-60 |
+| **The Ravagers' Plague** <sub>900098</sub> | Caretaker Alen | 🟢 Both | 55-60 |
+| **Devourers of the Dead** <sub>900099</sub> | Carlin Redpath | 🟢 Both | 56-60 |
+| **Stitched Together** <sub>900100</sub> | Leonid Barthalomew the Revered | 🟢 Both | 56-60 |
 
 </details>
 
@@ -205,7 +227,7 @@ python tools/build_quest_pack.py tools/specs/western_plaguelands.py data/sql/db-
 | **Foreststrider Plumes** <sub>900077</sub> | Gorbold Steelhand | 🔵 Alliance | 12-20 |
 | **Frenzy in the Water** <sub>900075</sub> | Gubber Blump | 🔵 Alliance | 12-20 |
 | **Moonstalker Pelts** <sub>900074</sub> | Tharnariun Treetender | 🔵 Alliance | 12-20 |
-| **Stormscale Raiders** <sub>900073</sub> | Sentinel Glynda Nal'Shea | 🔵 Alliance | 13-21 |
+| **Stormscale Raiders** <sub>900073</sub> | Sentinel Glynda Nal\'Shea | 🔵 Alliance | 13-21 |
 | **Blackwood Corruption** <sub>900076</sub> | Terenthis | 🔵 Alliance | 14-22 |
 | **Dark Strand Fanatics** <sub>900078</sub> | Archaeologist Hollee | 🔵 Alliance | 14-22 |
 
@@ -232,7 +254,7 @@ python tools/build_quest_pack.py tools/specs/western_plaguelands.py data/sql/db-
 | **Deepmoss Silk** <sub>900044</sub> | Kaela Shadowspear | 🔵 Alliance | 17-25 |
 | **Deepmoss Silk** <sub>900045</sub> | Tammra Windfield | 🔴 Horde | 17-25 |
 | **Pridewing Menace** <sub>900046</sub> | Gaxim Rustfizzle | 🔵 Alliance | 19-27 |
-| **Pridewing Menace** <sub>900047</sub> | Mor'rogal | 🔴 Horde | 19-27 |
+| **Pridewing Menace** <sub>900047</sub> | Mor\'rogal | 🔴 Horde | 19-27 |
 | **Windshear Diggers** <sub>900043</sub> | Ziz Fizziks | 🟢 Both | 19-27 |
 
 </details>
@@ -242,7 +264,7 @@ python tools/build_quest_pack.py tools/specs/western_plaguelands.py data/sql/db-
 
 | Quest | Giver | Faction | Levels |
 |---|---|---|:---:|
-| **Crawlers of Zoram** <sub>900050</sub> | Je'neu Sancrea | 🔴 Horde | 18-25 |
+| **Crawlers of Zoram** <sub>900050</sub> | Je\'neu Sancrea | 🔴 Horde | 18-25 |
 | **Shadowhorn Antlers** <sub>900049</sub> | Mastok Wrilehiss | 🔴 Horde | 20-29 |
 | **Shadethicket Uprising** <sub>900048</sub> | Senani Thunderheart | 🔴 Horde | 23-31 |
 
@@ -292,7 +314,7 @@ python tools/build_quest_pack.py tools/specs/western_plaguelands.py data/sql/db-
 | **Spitelash Serpents** <sub>900031</sub> | Archmage Xylem | 🟢 Both | 45-53 |
 | **Stagwing Feathers** <sub>900032</sub> | Ogtinc | 🟢 Both | 46-54 |
 | **Legashi Corruption** <sub>900033</sub> | Loramus Thalipedes | 🟢 Both | 49-57 |
-| **Coralshell Plates** <sub>900034</sub> | Kim'jael | 🟢 Both | 50-58 |
+| **Coralshell Plates** <sub>900034</sub> | Kim\'jael | 🟢 Both | 50-58 |
 | **Storm Bay Unrest** <sub>900035</sub> | Duke Hydraxis | 🟢 Both | 52-60 |
 
 </details>

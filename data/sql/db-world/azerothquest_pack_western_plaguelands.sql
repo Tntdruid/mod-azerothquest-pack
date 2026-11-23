@@ -1,38 +1,47 @@
 -- Target database: acore_world
 --
--- AzerothQuest quest pack: Western Plaguelands, levels 49-55.
+-- AzerothQuest quest pack: Western Plaguelands, levels 49-58.
 --
--- 8 quests, 4 for each faction, for the gap at levels 50-52: Chillwind Camp's quests open at 52-53. From
--- Commander Ashlam Valorfist and Alchemist Arbington (Chillwind Camp), High Executor Derrington and Apothecary
--- Dithers (The Bulwark): Skeletal Sorcerers, Blighted Zombies, Diseased Black Bears and Venom Mist Lurkers.
+-- 14 quests, 7 for each faction, for the gap at levels 50-54: Chillwind Camp's quests open at 52-53. From
+-- Commander Ashlam Valorfist, Alchemist Arbington and High Priestess MacDonnell (Chillwind Camp), High Executor
+-- Derrington and Apothecary Dithers (The Bulwark): Skeletal Sorcerers, Blighted Zombies, Diseased Black Bears,
+-- Venom Mist Lurkers, the Rotting Cadavers and Skeletal Terrors of the Dalson farm, Carrion Lurkers, and the
+-- oozes of the Weeping Cave.
 --
 -- Built by tools/questpack/build_quest_pack.py: QuestLevel -1 with XP and money by the player's level,
 -- MinLevel and MaxLevel within the zone's levels, quest-required multi-drop quest items copied from
--- Blasted Boar Lung with an existing display ID. Quests 900079-900086, items 900025-900026.
+-- Blasted Boar Lung with an existing display ID. Quests 900079-900092, items 900025-900028.
 --
 -- Safe to run twice. Restart the worldserver afterwards and delete the client's Cache folder.
 
 -- ---------------------------------------------------------------- items
-DELETE FROM `item_template` WHERE `entry` BETWEEN 900025 AND 900026;
+DELETE FROM `item_template` WHERE `entry` BETWEEN 900025 AND 900028;
 DROP TEMPORARY TABLE IF EXISTS `aq_item`;
 CREATE TEMPORARY TABLE `aq_item` SELECT * FROM `item_template` WHERE `entry` = 8392;  -- Blasted Boar Lung
 UPDATE `aq_item` SET `entry` = 900025, `name` = 'Blighted Bear Heart', `displayid` = 3422, `description` = 'It still beats, slowly.' WHERE `entry` = 8392;
 INSERT INTO `item_template` SELECT * FROM `aq_item`;
 UPDATE `aq_item` SET `entry` = 900026, `name` = 'Venom Mist Gland', `displayid` = 8940, `description` = 'It sweats a green mist.' WHERE `entry` = 900025;
 INSERT INTO `item_template` SELECT * FROM `aq_item`;
+UPDATE `aq_item` SET `entry` = 900027, `name` = 'Carrion Lurker Fang', `displayid` = 2460, `description` = 'Hollow, and still wet with venom.' WHERE `entry` = 900026;
+INSERT INTO `item_template` SELECT * FROM `aq_item`;
+UPDATE `aq_item` SET `entry` = 900028, `name` = 'Weeping Cave Slime', `displayid` = 21972, `description` = 'It weeps through the glass.' WHERE `entry` = 900027;
+INSERT INTO `item_template` SELECT * FROM `aq_item`;
 DROP TEMPORARY TABLE `aq_item`;
 UPDATE `item_template` SET `class` = 12, `subclass` = 0, `Quality` = 1, `bonding` = 4, `stackable` = 20,
 	`maxcount` = 0, `Flags` = 0x800, `BuyPrice` = 0, `SellPrice` = 0, `startquest` = 0
-WHERE `entry` BETWEEN 900025 AND 900026;
+WHERE `entry` BETWEEN 900025 AND 900028;
 
 -- ---------------------------------------------------------------- loot (quest required)
-DELETE FROM `creature_loot_template` WHERE `Item` BETWEEN 900025 AND 900026;
+DELETE FROM `creature_loot_template` WHERE `Item` BETWEEN 900025 AND 900028;
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
 (1815, 900025, 0, 50, 1, 1, 0, 1, 1, 'Diseased Black Bear - Blighted Bear Heart (AzerothQuest pack)'),
-(1822, 900026, 0, 50, 1, 1, 0, 1, 1, 'Venom Mist Lurker - Venom Mist Gland (AzerothQuest pack)');
+(1822, 900026, 0, 50, 1, 1, 0, 1, 1, 'Venom Mist Lurker - Venom Mist Gland (AzerothQuest pack)'),
+(1821, 900027, 0, 50, 1, 1, 0, 1, 1, 'Carrion Lurker - Carrion Lurker Fang (AzerothQuest pack)'),
+(1806, 900028, 0, 50, 1, 1, 0, 1, 1, 'Vile Slime - Weeping Cave Slime (AzerothQuest pack)'),
+(1808, 900028, 0, 60, 1, 1, 0, 1, 1, 'Devouring Ooze - Weeping Cave Slime (AzerothQuest pack)');
 
 -- ---------------------------------------------------------------- quests
-DELETE FROM `quest_template` WHERE `ID` BETWEEN 900079 AND 900086;
+DELETE FROM `quest_template` WHERE `ID` BETWEEN 900079 AND 900092;
 INSERT INTO `quest_template` (`ID`, `QuestType`, `QuestLevel`, `MinLevel`, `QuestSortID`, `QuestInfoID`, `SuggestedGroupNum`,
 	`RewardXPDifficulty`, `RewardMoney`, `RewardMoneyDifficulty`, `Flags`, `AllowableRaces`,
 	`LogTitle`, `LogDescription`, `QuestDescription`, `AreaDescription`, `QuestCompletionLog`,
@@ -77,9 +86,39 @@ INSERT INTO `quest_template` (`ID`, `QuestType`, `QuestLevel`, `MinLevel`, `Ques
 	'Bring 8 Venom Mist Glands to Apothecary Dithers at The Bulwark.',
 	'The venom mist lurkers in the west carry a poison that the plague leaves alone. I want to know why.$B$BBring me eight of their glands, $N.',
 	'', 'Return to Apothecary Dithers at The Bulwark.',
-	0, 0, 0, 0, 900026, 8, 0);
+	0, 0, 0, 0, 900026, 8, 0),
+(900087, 2, -1, 51, 28, 0, 0, 5, 0, 5, 8, 1101, 'Rest for the Fallen',
+	'Kill 10 Rotting Cadavers and 6 Skeletal Terrors around the Dalson farm, then return to Commander Ashlam Valorfist at Chillwind Camp.',
+	'The Dalsons'' farm was a good place once, $N. Now the dead walk its fields: rotting cadavers, and the skeletal terrors that drive them.$B$BGive them rest. Ten of the cadavers and six of the terrors, and the farm will be closer to what it was.',
+	'', 'Return to Commander Ashlam Valorfist at Chillwind Camp.',
+	4474, 1785, 10, 6, 0, 0, 0),
+(900088, 2, -1, 51, 28, 0, 0, 5, 0, 5, 8, 1101, 'Fangs of the Carrion Lurkers',
+	'Bring 8 Carrion Lurker Fangs to High Priestess MacDonnell at Chillwind Camp.',
+	'Our wounded come back from the fields with a poison in their blood that the Light only slows. It comes from the carrion lurkers, the great spiders that nest north of here.$B$BBring me eight of their fangs, $N. If I know the poison, I can learn to draw it out.',
+	'', 'Return to High Priestess MacDonnell at Chillwind Camp.',
+	0, 0, 0, 0, 900027, 8, 0),
+(900089, 2, -1, 51, 28, 0, 0, 5, 0, 5, 8, 690, 'Rest for the Fallen',
+	'Kill 10 Rotting Cadavers and 6 Skeletal Terrors around the Dalson farm, then return to High Executor Derrington at The Bulwark.',
+	'The Scourge gather their dead at the Dalson farm: rotting cadavers, herded by skeletal terrors. They mean to march them on The Bulwark.$B$BThey will not get the chance. Ten cadavers and six terrors, $N.',
+	'', 'Return to High Executor Derrington at The Bulwark.',
+	4474, 1785, 10, 6, 0, 0, 0),
+(900090, 2, -1, 51, 28, 0, 0, 5, 0, 5, 8, 690, 'Fangs of the Carrion Lurkers',
+	'Bring 8 Carrion Lurker Fangs to Apothecary Dithers at The Bulwark.',
+	'The carrion lurkers that nest in the fields carry a venom stronger than anything in my stores, $N.$B$BBring me eight of their fangs. The Society has uses for such a venom.',
+	'', 'Return to Apothecary Dithers at The Bulwark.',
+	0, 0, 0, 0, 900027, 8, 0),
+(900091, 2, -1, 52, 28, 0, 0, 5, 0, 5, 8, 1101, 'The Weeping Cave',
+	'Bring 10 Weeping Cave Slime from the oozes of the Weeping Cave to Alchemist Arbington at Chillwind Camp.',
+	'East of the Thondroril River lies the Weeping Cave, $N, and it is full of oozes that drank the plague and grew fat on it.$B$BThe vile slimes and devouring oozes in there are the plague made liquid. Bring me ten samples of their slime. Carefully.',
+	'', 'Return to Alchemist Arbington at Chillwind Camp.',
+	0, 0, 0, 0, 900028, 10, 0),
+(900092, 2, -1, 52, 28, 0, 0, 5, 0, 5, 8, 690, 'The Weeping Cave',
+	'Bring 10 Weeping Cave Slime from the oozes of the Weeping Cave to Apothecary Dithers at The Bulwark.',
+	'The Weeping Cave, near the Thondroril River, is full of oozes that grew strong on the plague, $N.$B$BThe Society wants their slime: ten samples, from the vile slimes and the devouring oozes. Do not let it touch your skin.',
+	'', 'Return to Apothecary Dithers at The Bulwark.',
+	0, 0, 0, 0, 900028, 10, 0);
 
-DELETE FROM `quest_template_addon` WHERE `ID` BETWEEN 900079 AND 900086;
+DELETE FROM `quest_template_addon` WHERE `ID` BETWEEN 900079 AND 900092;
 INSERT INTO `quest_template_addon` (`ID`, `MaxLevel`) VALUES
 (900079, 55),
 (900080, 55),
@@ -88,9 +127,15 @@ INSERT INTO `quest_template_addon` (`ID`, `MaxLevel`) VALUES
 (900083, 55),
 (900084, 55),
 (900085, 55),
-(900086, 55);
+(900086, 55),
+(900087, 56),
+(900088, 56),
+(900089, 56),
+(900090, 56),
+(900091, 58),
+(900092, 58);
 
-DELETE FROM `quest_request_items` WHERE `ID` BETWEEN 900079 AND 900086;
+DELETE FROM `quest_request_items` WHERE `ID` BETWEEN 900079 AND 900092;
 INSERT INTO `quest_request_items` (`ID`, `EmoteOnComplete`, `EmoteOnIncomplete`, `CompletionText`, `VerifiedBuild`) VALUES
 (900079, 1, 1, 'Are the sorcerers dealt with?', 0),
 (900080, 1, 1, 'Is the road clear?', 0),
@@ -99,9 +144,15 @@ INSERT INTO `quest_request_items` (`ID`, `EmoteOnComplete`, `EmoteOnIncomplete`,
 (900083, 1, 1, 'Have you dealt with the sorcerers?', 0),
 (900084, 1, 1, 'Are the roads clear?', 0),
 (900085, 1, 1, 'The hearts?', 0),
-(900086, 1, 1, 'Do you have the glands?', 0);
+(900086, 1, 1, 'Do you have the glands?', 0),
+(900087, 1, 1, 'Have the dead of the farm found rest?', 0),
+(900088, 1, 1, 'Have you the fangs?', 0),
+(900089, 1, 1, 'Is the farm dealt with?', 0),
+(900090, 1, 1, 'The fangs?', 0),
+(900091, 1, 1, 'Did you bring the slime?', 0),
+(900092, 1, 1, 'The slime, $N?', 0);
 
-DELETE FROM `quest_offer_reward` WHERE `ID` BETWEEN 900079 AND 900086;
+DELETE FROM `quest_offer_reward` WHERE `ID` BETWEEN 900079 AND 900092;
 INSERT INTO `quest_offer_reward` (`ID`, `Emote1`, `RewardText`, `VerifiedBuild`) VALUES
 (900079, 1, 'Good work. Fewer of our fallen will rise to fight us.', 0),
 (900080, 1, 'The caravans will thank you, $N. So do I.', 0),
@@ -110,10 +161,16 @@ INSERT INTO `quest_offer_reward` (`ID`, `Emote1`, `RewardText`, `VerifiedBuild`)
 (900083, 1, 'Well done. The Dark Lady will hear of this.', 0),
 (900084, 1, 'Good. The patrols can push further now.', 0),
 (900085, 1, 'Excellent. The Society will be very pleased.', 0),
-(900086, 1, 'Yes... yes, these are perfect. Thank you.', 0);
+(900086, 1, 'Yes... yes, these are perfect. Thank you.', 0),
+(900087, 1, 'May the Light keep them, this time. Well done, $N.', 0),
+(900088, 1, 'Thank you, $N. Our wounded will live because of this.', 0),
+(900089, 1, 'Good. The Scourge will have to look elsewhere for their army.', 0),
+(900090, 1, 'Wonderful. The Society thanks you, and so do I.', 0),
+(900091, 1, 'Oh, it moves! Marvelous. Stand back, please, I need to get it under glass.', 0),
+(900092, 1, 'Perfect. Such a lovely, terrible thing.', 0);
 
 -- ---------------------------------------------------------------- givers
-DELETE FROM `creature_queststarter` WHERE `quest` BETWEEN 900079 AND 900086;
+DELETE FROM `creature_queststarter` WHERE `quest` BETWEEN 900079 AND 900092;
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
 (10838, 900079),
 (10838, 900080),
@@ -122,8 +179,14 @@ INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
 (10837, 900083),
 (10837, 900084),
 (11057, 900085),
-(11057, 900086);
-DELETE FROM `creature_questender` WHERE `quest` BETWEEN 900079 AND 900086;
+(11057, 900086),
+(10838, 900087),
+(11053, 900088),
+(10837, 900089),
+(11057, 900090),
+(11056, 900091),
+(11057, 900092);
+DELETE FROM `creature_questender` WHERE `quest` BETWEEN 900079 AND 900092;
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES
 (10838, 900079),
 (10838, 900080),
@@ -132,14 +195,20 @@ INSERT INTO `creature_questender` (`id`, `quest`) VALUES
 (10837, 900083),
 (10837, 900084),
 (11057, 900085),
-(11057, 900086);
+(11057, 900086),
+(10838, 900087),
+(11053, 900088),
+(10837, 900089),
+(11057, 900090),
+(11056, 900091),
+(11057, 900092);
 
 -- Revert:
--- DELETE FROM `creature_queststarter` WHERE `quest` BETWEEN 900079 AND 900086;
--- DELETE FROM `creature_questender` WHERE `quest` BETWEEN 900079 AND 900086;
--- DELETE FROM `quest_offer_reward` WHERE `ID` BETWEEN 900079 AND 900086;
--- DELETE FROM `quest_request_items` WHERE `ID` BETWEEN 900079 AND 900086;
--- DELETE FROM `quest_template_addon` WHERE `ID` BETWEEN 900079 AND 900086;
--- DELETE FROM `quest_template` WHERE `ID` BETWEEN 900079 AND 900086;
--- DELETE FROM `creature_loot_template` WHERE `Item` BETWEEN 900025 AND 900026;
--- DELETE FROM `item_template` WHERE `entry` BETWEEN 900025 AND 900026;
+-- DELETE FROM `creature_queststarter` WHERE `quest` BETWEEN 900079 AND 900092;
+-- DELETE FROM `creature_questender` WHERE `quest` BETWEEN 900079 AND 900092;
+-- DELETE FROM `quest_offer_reward` WHERE `ID` BETWEEN 900079 AND 900092;
+-- DELETE FROM `quest_request_items` WHERE `ID` BETWEEN 900079 AND 900092;
+-- DELETE FROM `quest_template_addon` WHERE `ID` BETWEEN 900079 AND 900092;
+-- DELETE FROM `quest_template` WHERE `ID` BETWEEN 900079 AND 900092;
+-- DELETE FROM `creature_loot_template` WHERE `Item` BETWEEN 900025 AND 900028;
+-- DELETE FROM `item_template` WHERE `entry` BETWEEN 900025 AND 900028;

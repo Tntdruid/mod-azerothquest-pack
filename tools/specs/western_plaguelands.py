@@ -1,4 +1,4 @@
-# Quest pack: Western Plaguelands, levels 49-55. The Alliance guide had only 8 quests opening at 48-49 and Chillwind
+# Quest pack: Western Plaguelands, levels 49-58. The Alliance guide had only 8 quests opening at 48-49 and Chillwind
 # Camp's own quests open at 52-53: at 50 a hunter waited with nothing to do. Four quests for each faction, from
 # Chillwind Camp and The Bulwark, on the level 50-53 mobs no quest uses: the Skeletal Sorcerers and Blighted Zombies
 # of Felstone Field and the Dalson farm, the Diseased Black Bears and Venom Mist Lurkers in the west.
@@ -8,12 +8,14 @@ import runpy
 
 quest = runpy.run_path(os.path.join(os.path.dirname(os.path.abspath(__file__)), "kalimdor.py"))["quest"]
 
-TITLE = "Western Plaguelands, levels 49-55."
+TITLE = "Western Plaguelands, levels 49-58."
 HEADER = [
     "",
-    "8 quests, 4 for each faction, for the gap at levels 50-52: Chillwind Camp's quests open at 52-53. From",
-    "Commander Ashlam Valorfist and Alchemist Arbington (Chillwind Camp), High Executor Derrington and Apothecary",
-    "Dithers (The Bulwark): Skeletal Sorcerers, Blighted Zombies, Diseased Black Bears and Venom Mist Lurkers.",
+    "14 quests, 7 for each faction, for the gap at levels 50-54: Chillwind Camp's quests open at 52-53. From",
+    "Commander Ashlam Valorfist, Alchemist Arbington and High Priestess MacDonnell (Chillwind Camp), High Executor",
+    "Derrington and Apothecary Dithers (The Bulwark): Skeletal Sorcerers, Blighted Zombies, Diseased Black Bears,",
+    "Venom Mist Lurkers, the Rotting Cadavers and Skeletal Terrors of the Dalson farm, Carrion Lurkers, and the",
+    "oozes of the Weeping Cave.",
 ]
 
 ALLIANCE, HORDE = 1101, 690
@@ -24,6 +26,10 @@ ITEMS = [
      [(1815, 50, "Diseased Black Bear")]),
     (900026, "Venom Mist Gland", 8940, "It sweats a green mist.",
      [(1822, 50, "Venom Mist Lurker")]),
+    (900027, "Carrion Lurker Fang", 2460, "Hollow, and still wet with venom.",
+     [(1821, 50, "Carrion Lurker")]),
+    (900028, "Weeping Cave Slime", 21972, "It weeps through the glass.",
+     [(1806, 50, "Vile Slime"), (1808, 60, "Devouring Ooze")]),
 ]
 
 QUESTS = [
@@ -75,4 +81,40 @@ QUESTS = [
           ret="Return to Apothecary Dithers at The Bulwark.",
           ask="Do you have the glands?", done="Yes... yes, these are perfect. Thank you.",
           item=(900026, 8)),
+    quest(900087, 10838, "Commander Ashlam Valorfist", "Rest for the Fallen", PLAGUELANDS, 51, 56, races=ALLIANCE,
+          log="Kill 10 Rotting Cadavers and 6 Skeletal Terrors around the Dalson farm, then return to Commander Ashlam Valorfist at Chillwind Camp.",
+          text="The Dalsons' farm was a good place once, $N. Now the dead walk its fields: rotting cadavers, and the skeletal terrors that drive them.$B$BGive them rest. Ten of the cadavers and six of the terrors, and the farm will be closer to what it was.",
+          ret="Return to Commander Ashlam Valorfist at Chillwind Camp.",
+          ask="Have the dead of the farm found rest?", done="May the Light keep them, this time. Well done, $N.",
+          kill=[(4474, 10), (1785, 6)]),
+    quest(900088, 11053, "High Priestess MacDonnell", "Fangs of the Carrion Lurkers", PLAGUELANDS, 51, 56, races=ALLIANCE,
+          log="Bring 8 Carrion Lurker Fangs to High Priestess MacDonnell at Chillwind Camp.",
+          text="Our wounded come back from the fields with a poison in their blood that the Light only slows. It comes from the carrion lurkers, the great spiders that nest north of here.$B$BBring me eight of their fangs, $N. If I know the poison, I can learn to draw it out.",
+          ret="Return to High Priestess MacDonnell at Chillwind Camp.",
+          ask="Have you the fangs?", done="Thank you, $N. Our wounded will live because of this.",
+          item=(900027, 8)),
+    quest(900089, 10837, "High Executor Derrington", "Rest for the Fallen", PLAGUELANDS, 51, 56, races=HORDE,
+          log="Kill 10 Rotting Cadavers and 6 Skeletal Terrors around the Dalson farm, then return to High Executor Derrington at The Bulwark.",
+          text="The Scourge gather their dead at the Dalson farm: rotting cadavers, herded by skeletal terrors. They mean to march them on The Bulwark.$B$BThey will not get the chance. Ten cadavers and six terrors, $N.",
+          ret="Return to High Executor Derrington at The Bulwark.",
+          ask="Is the farm dealt with?", done="Good. The Scourge will have to look elsewhere for their army.",
+          kill=[(4474, 10), (1785, 6)]),
+    quest(900090, 11057, "Apothecary Dithers", "Fangs of the Carrion Lurkers", PLAGUELANDS, 51, 56, races=HORDE,
+          log="Bring 8 Carrion Lurker Fangs to Apothecary Dithers at The Bulwark.",
+          text="The carrion lurkers that nest in the fields carry a venom stronger than anything in my stores, $N.$B$BBring me eight of their fangs. The Society has uses for such a venom.",
+          ret="Return to Apothecary Dithers at The Bulwark.",
+          ask="The fangs?", done="Wonderful. The Society thanks you, and so do I.",
+          item=(900027, 8)),
+    quest(900091, 11056, "Alchemist Arbington", "The Weeping Cave", PLAGUELANDS, 52, 58, races=ALLIANCE,
+          log="Bring 10 Weeping Cave Slime from the oozes of the Weeping Cave to Alchemist Arbington at Chillwind Camp.",
+          text="East of the Thondroril River lies the Weeping Cave, $N, and it is full of oozes that drank the plague and grew fat on it.$B$BThe vile slimes and devouring oozes in there are the plague made liquid. Bring me ten samples of their slime. Carefully.",
+          ret="Return to Alchemist Arbington at Chillwind Camp.",
+          ask="Did you bring the slime?", done="Oh, it moves! Marvelous. Stand back, please, I need to get it under glass.",
+          item=(900028, 10)),
+    quest(900092, 11057, "Apothecary Dithers", "The Weeping Cave", PLAGUELANDS, 52, 58, races=HORDE,
+          log="Bring 10 Weeping Cave Slime from the oozes of the Weeping Cave to Apothecary Dithers at The Bulwark.",
+          text="The Weeping Cave, near the Thondroril River, is full of oozes that grew strong on the plague, $N.$B$BThe Society wants their slime: ten samples, from the vile slimes and the devouring oozes. Do not let it touch your skin.",
+          ret="Return to Apothecary Dithers at The Bulwark.",
+          ask="The slime, $N?", done="Perfect. Such a lovely, terrible thing.",
+          item=(900028, 10)),
 ]
