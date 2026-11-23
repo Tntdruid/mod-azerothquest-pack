@@ -196,14 +196,14 @@ python tools/build_quest_pack.py tools/specs/western_plaguelands.py data/sql/db-
 
 | Quest | Giver | Faction | Levels |
 |---|---|---|:---:|
-| **Hunger in the Plaguewood** <sub>900094</sub> | Leonid Barthalomew the Revered | 🟢 Both | 53-60 |
-| **The Scourge Muster** <sub>900093</sub> | Lord Maxwell Tyrosus | 🟢 Both | 53-60 |
+| **Hunger in the Plaguewood** <sub>900094</sub> | Caretaker Alen | 🟢 Both | 53-60 |
+| **The Scourge Muster** <sub>900093</sub> | Carlin Redpath | 🟢 Both | 53-60 |
 | **Stone Wings over Darrowshire** <sub>900095</sub> | Carlin Redpath | 🟢 Both | 54-60 |
-| **Corin's Crossing** <sub>900096</sub> | Lord Maxwell Tyrosus | 🟢 Both | 55-60 |
-| **Samples of Living Decay** <sub>900097</sub> | Smokey LaRue | 🟢 Both | 55-60 |
+| **Corin's Crossing** <sub>900096</sub> | Carlin Redpath | 🟢 Both | 55-60 |
+| **Samples of Living Decay** <sub>900097</sub> | Caretaker Alen | 🟢 Both | 55-60 |
 | **The Ravagers' Plague** <sub>900098</sub> | Caretaker Alen | 🟢 Both | 55-60 |
 | **Devourers of the Dead** <sub>900099</sub> | Carlin Redpath | 🟢 Both | 56-60 |
-| **Stitched Together** <sub>900100</sub> | Leonid Barthalomew the Revered | 🟢 Both | 56-60 |
+| **Stitched Together** <sub>900100</sub> | Caretaker Alen | 🟢 Both | 56-60 |
 
 </details>
 

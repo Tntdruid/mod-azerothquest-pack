@@ -2,8 +2,8 @@
 --
 -- AzerothQuest quest pack: Eastern Plaguelands, levels 53-60.
 --
--- 8 quests for both factions from Light's Hope Chapel, for the gap at levels 54-56: Lord Maxwell Tyrosus, Leonid
--- Barthalomew the Revered, Smokey LaRue, Carlin Redpath and Caretaker Alen. Scourge Soldiers, Cursed Mages,
+-- 8 quests for both factions from Light's Hope Chapel, for the gap at levels 54-56, from Carlin Redpath and
+-- Caretaker Alen (mod-individual-progression hides the chapel's other givers until later): Scourge Soldiers, Cursed Mages,
 -- Cannibal Ghouls, Torn Screamers, Putrid Gargoyles, Hate Shriekers, Living Decay, Plague Ravagers, Carrion
 -- Devourers and Stitched Horrors.
 --
@@ -40,14 +40,14 @@ INSERT INTO `quest_template` (`ID`, `QuestType`, `QuestLevel`, `MinLevel`, `Ques
 	`RequiredNpcOrGo1`, `RequiredNpcOrGo2`, `RequiredNpcOrGoCount1`, `RequiredNpcOrGoCount2`,
 	`RequiredItemId1`, `RequiredItemCount1`, `VerifiedBuild`) VALUES
 (900093, 2, -1, 53, 139, 0, 0, 5, 0, 5, 8, 0, 'The Scourge Muster',
-	'Kill 10 Scourge Soldiers and 6 Cursed Mages in the north-west of the Eastern Plaguelands, then return to Lord Maxwell Tyrosus at Light''s Hope Chapel.',
-	'The Scourge are gathering soldiers in the north-west, near Terrordale, and their cursed mages raise more every night.$B$BThe Argent Dawn cannot let that army grow, $N. Ten soldiers and six of their mages, and the muster will be broken before it marches.',
-	'', 'Return to Lord Maxwell Tyrosus at Light''s Hope Chapel.',
+	'Kill 10 Scourge Soldiers and 6 Cursed Mages in the north-west of the Eastern Plaguelands, then return to Carlin Redpath at Light''s Hope Chapel.',
+	'The Scourge are gathering soldiers in the north-west, near Terrordale, and their cursed mages raise more every night. I saw what such an army did to Darrowshire.$B$BDo not let it grow, $N. Ten soldiers and six of their mages, and the muster will be broken before it marches.',
+	'', 'Return to Carlin Redpath at Light''s Hope Chapel.',
 	8523, 8524, 10, 6, 0, 0, 0),
 (900094, 2, -1, 53, 139, 0, 0, 5, 0, 5, 8, 0, 'Hunger in the Plaguewood',
-	'Kill 10 Cannibal Ghouls and 8 Torn Screamers in the north-west of the Eastern Plaguelands, then return to Leonid Barthalomew the Revered at Light''s Hope Chapel.',
-	'Something must be done about the north-west, $N. The cannibal ghouls there devour the fallen before we can give them rest, and the torn screamers fill the air with the cries of the dead.$B$BLet the Light guide your hand. Ten ghouls and eight screamers.',
-	'', 'Return to Leonid Barthalomew the Revered at Light''s Hope Chapel.',
+	'Kill 10 Cannibal Ghouls and 8 Torn Screamers in the north-west of the Eastern Plaguelands, then return to Caretaker Alen at Light''s Hope Chapel.',
+	'I tend the dead here, $N, but in the north-west there are none left to tend. The cannibal ghouls devour the fallen before we can give them rest, and the torn screamers fill the air with their cries.$B$BTen ghouls and eight screamers, and some of the fallen may yet be buried.',
+	'', 'Return to Caretaker Alen at Light''s Hope Chapel.',
 	8530, 8540, 10, 8, 0, 0, 0),
 (900095, 2, -1, 54, 139, 0, 0, 5, 0, 5, 8, 0, 'Stone Wings over Darrowshire',
 	'Kill 10 Putrid Gargoyles in the Eastern Plaguelands, then return to Carlin Redpath at Light''s Hope Chapel.',
@@ -55,14 +55,14 @@ INSERT INTO `quest_template` (`ID`, `QuestType`, `QuestLevel`, `MinLevel`, `Ques
 	'', 'Return to Carlin Redpath at Light''s Hope Chapel.',
 	8534, 0, 10, 0, 0, 0, 0),
 (900096, 2, -1, 55, 139, 0, 0, 5, 0, 5, 8, 0, 'Corin''s Crossing',
-	'Kill 10 Hate Shriekers at Corin''s Crossing, then return to Lord Maxwell Tyrosus at Light''s Hope Chapel.',
-	'Corin''s Crossing was a town once. Now it is a Scourge stronghold in the heart of the plaguelands, and its hate shriekers drive off any who come near.$B$BWe will take it back one day. Today, kill ten of the shriekers, $N.',
-	'', 'Return to Lord Maxwell Tyrosus at Light''s Hope Chapel.',
+	'Kill 10 Hate Shriekers at Corin''s Crossing, then return to Carlin Redpath at Light''s Hope Chapel.',
+	'Corin''s Crossing was a town once, like Darrowshire. Now it is a Scourge stronghold in the heart of the plaguelands, and its hate shriekers drive off any who come near.$B$BWe will take it back one day. Today, kill ten of the shriekers, $N.',
+	'', 'Return to Carlin Redpath at Light''s Hope Chapel.',
 	8541, 0, 10, 0, 0, 0, 0),
 (900097, 2, -1, 55, 139, 0, 0, 5, 0, 5, 8, 0, 'Samples of Living Decay',
-	'Bring 8 Samples of Living Decay to Smokey LaRue at Light''s Hope Chapel.',
-	'You know what burns hot, friend? Rot. Living decay, the oozing kind, south-east of here. I''ve got a theory about a compound, and I need samples.$B$BEight of them. Don''t ask what for. You''ll sleep better.',
-	'', 'Return to Smokey LaRue at Light''s Hope Chapel.',
+	'Bring 8 Samples of Living Decay to Caretaker Alen at Light''s Hope Chapel.',
+	'The living decay south-east of here is the plague grown a body of its own, $N. If we understand how it rots the living, perhaps we can keep it from the wounded we tend.$B$BBring me eight samples. Keep them sealed.',
+	'', 'Return to Caretaker Alen at Light''s Hope Chapel.',
 	0, 0, 0, 0, 900029, 8, 0),
 (900098, 2, -1, 55, 139, 0, 0, 5, 0, 5, 8, 0, 'The Ravagers'' Plague',
 	'Bring 8 Ravager Plague Glands to Caretaker Alen at Light''s Hope Chapel.',
@@ -75,9 +75,9 @@ INSERT INTO `quest_template` (`ID`, `QuestType`, `QuestLevel`, `MinLevel`, `Ques
 	'', 'Return to Carlin Redpath at Light''s Hope Chapel.',
 	8605, 0, 10, 0, 0, 0, 0),
 (900100, 2, -1, 56, 139, 0, 0, 5, 0, 5, 8, 0, 'Stitched Together',
-	'Kill 8 Stitched Horrors in the north-west of the Eastern Plaguelands, then return to Leonid Barthalomew the Revered at Light''s Hope Chapel.',
-	'The stitched horrors are an abomination, $N: the dead sewn together into something worse. They guard the Scourge''s camps in the north-west.$B$BCut them apart. Eight of them, and let what was stitched together find rest.',
-	'', 'Return to Leonid Barthalomew the Revered at Light''s Hope Chapel.',
+	'Kill 8 Stitched Horrors in the north-west of the Eastern Plaguelands, then return to Caretaker Alen at Light''s Hope Chapel.',
+	'The stitched horrors are an abomination, $N: our dead sewn together into something worse. They guard the Scourge''s camps in the north-west.$B$BCut them apart. Eight of them, and let what was stitched together find rest.',
+	'', 'Return to Caretaker Alen at Light''s Hope Chapel.',
 	8543, 0, 8, 0, 0, 0, 0);
 
 DELETE FROM `quest_template_addon` WHERE `ID` BETWEEN 900093 AND 900100;
@@ -97,43 +97,43 @@ INSERT INTO `quest_request_items` (`ID`, `EmoteOnComplete`, `EmoteOnIncomplete`,
 (900094, 1, 1, 'Have the fallen been spared?', 0),
 (900095, 1, 1, 'Are the skies clear?', 0),
 (900096, 1, 1, 'How fares Corin''s Crossing?', 0),
-(900097, 1, 1, 'Got my samples?', 0),
+(900097, 1, 1, 'Did you bring the samples?', 0),
 (900098, 1, 1, 'Do you have the glands?', 0),
 (900099, 1, 1, 'Are the devourers dealt with?', 0),
 (900100, 1, 1, 'Are the horrors undone?', 0);
 
 DELETE FROM `quest_offer_reward` WHERE `ID` BETWEEN 900093 AND 900100;
 INSERT INTO `quest_offer_reward` (`ID`, `Emote1`, `RewardText`, `VerifiedBuild`) VALUES
-(900093, 1, 'Well fought. The Dawn owes you, $N.', 0),
+(900093, 1, 'Well fought. No town will burn the way mine did, not to that army.', 0),
 (900094, 1, 'The Light thanks you, and so do the dead you spared.', 0),
 (900095, 1, 'Thank you. It is a small thing, but it matters to me.', 0),
 (900096, 1, 'Ten fewer. The day we retake it comes closer.', 0),
-(900097, 1, 'Ha! Beautiful. Now stand back, this might get loud.', 0),
+(900097, 1, 'Thank you. I will study them carefully, and far from the beds.', 0),
 (900098, 1, 'Thank you. These will help more than you know.', 0),
 (900099, 1, 'Good. The dead in the north can rest a little easier.', 0),
-(900100, 1, 'May the Light take them, piece by piece. Thank you.', 0);
+(900100, 1, 'Then those poor souls can be laid to rest at last. Thank you.', 0);
 
 -- ---------------------------------------------------------------- givers
 DELETE FROM `creature_queststarter` WHERE `quest` BETWEEN 900093 AND 900100;
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
-(11034, 900093),
-(11036, 900094),
+(11063, 900093),
+(11038, 900094),
 (11063, 900095),
-(11034, 900096),
-(11033, 900097),
+(11063, 900096),
+(11038, 900097),
 (11038, 900098),
 (11063, 900099),
-(11036, 900100);
+(11038, 900100);
 DELETE FROM `creature_questender` WHERE `quest` BETWEEN 900093 AND 900100;
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES
-(11034, 900093),
-(11036, 900094),
+(11063, 900093),
+(11038, 900094),
 (11063, 900095),
-(11034, 900096),
-(11033, 900097),
+(11063, 900096),
+(11038, 900097),
 (11038, 900098),
 (11063, 900099),
-(11036, 900100);
+(11038, 900100);
 
 -- Revert:
 -- DELETE FROM `creature_queststarter` WHERE `quest` BETWEEN 900093 AND 900100;
