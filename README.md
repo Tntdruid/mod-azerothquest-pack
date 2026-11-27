@@ -2,13 +2,13 @@
 
 <h1 align="center">AzerothQuest Quest Pack</h1>
 
-<p align="center">100 new quests for AzerothCore (WotLK 3.3.5a) in the zones where the levelling route runs thin.<br>
+<p align="center">105 new quests for AzerothCore (WotLK 3.3.5a) in the zones where the levelling route runs thin.<br>
 They scale with the player, stay within each zone's levels, and are themed after their zone and giver.</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/AzerothCore-module-1f6feb" alt="AzerothCore module">
   <img src="https://img.shields.io/badge/WotLK-3.3.5a-8b5cf6" alt="WotLK 3.3.5a">
-  <img src="https://img.shields.io/badge/quests-100-2f6b3a" alt="100 quests">
+  <img src="https://img.shields.io/badge/quests-105-2f6b3a" alt="105 quests">
   <img src="https://img.shields.io/badge/license-AGPL--3.0-b8862b" alt="AGPL-3.0">
   <a href="https://github.com/Tntdruid"><img src="https://img.shields.io/badge/author-Tntdruid-c0392b?logo=github" alt="Author: Tntdruid"></a>
 </p>
@@ -18,12 +18,12 @@ Author: Tntdruid
 
 ## What it adds
 
-- **100 quests** (IDs 900001-900100) in 20 zones of the Eastern Kingdoms and Kalimdor, for both factions where the
+- **105 quests** (IDs 900001-900105) in 20 zones of the Eastern Kingdoms and Kalimdor, for both factions where the
   zone has a hub for each, from quest givers already standing there.
 - **Scaling**: every quest has the player's level (QuestLevel -1), with XP and money by level
   (`RewardXPDifficulty` 5, `RewardMoneyDifficulty` 5 from `quest_money_reward`). MinLevel and MaxLevel keep each
   quest within its zone's levels.
-- **Group friendly quest items** (items 900001-900030): quest-required, and multi-drop, so everyone in the group
+- **Group friendly quest items** (items 900001-900032): quest-required, and multi-drop, so everyone in the group
   with the quest loots their own from each kill. Playerbots included.
 - **World map areas** (`quest_poi`): where to kill or loot, and where to hand in, as for the game's own quests.
 - Only mobs no other quest uses (or uses only for a drop), so the pack adds content instead of competing with it.
@@ -67,7 +67,7 @@ python tools/build_quest_pack.py tools/specs/western_plaguelands.py data/sql/db-
 
 🔵 Alliance &nbsp; 🔴 Horde &nbsp; 🟢 Both factions &nbsp; · &nbsp; Levels: the range a quest can be taken in (it scales to the player within it).
 
-### Eastern Kingdoms (60 quests)
+### Eastern Kingdoms (65 quests)
 
 <details>
 <summary><b>Alterac Mountains</b> &nbsp;·&nbsp; 6 quests &nbsp;·&nbsp; levels 31-42</summary>
@@ -134,7 +134,7 @@ python tools/build_quest_pack.py tools/specs/western_plaguelands.py data/sql/db-
 </details>
 
 <details>
-<summary><b>Searing Gorge</b> &nbsp;·&nbsp; 4 quests &nbsp;·&nbsp; levels 42-52</summary>
+<summary><b>Searing Gorge</b> &nbsp;·&nbsp; 8 quests &nbsp;·&nbsp; levels 42-53</summary>
 
 | Quest | Giver | Faction | Levels |
 |---|---|---|:---:|
@@ -142,16 +142,21 @@ python tools/build_quest_pack.py tools/specs/western_plaguelands.py data/sql/db-
 | **Searing Venom** <sub>900005</sub> | Master Smith Burninate | 🟢 Both | 43-52 |
 | **Cooling the Forge** <sub>900006</sub> | Master Smith Burninate | 🟢 Both | 44-52 |
 | **Blind the Lookouts** <sub>900007</sub> | Hansel Heavyhands | 🟢 Both | 45-52 |
+| **Spiders of the Gorge** <sub>900101</sub> | Hansel Heavyhands | 🟢 Both | 46-52 |
+| **Elementals of the Gorge** <sub>900105</sub> | Hansel Heavyhands | 🟢 Both | 47-53 |
+| **Muck in the Water** <sub>900102</sub> | Evonice Sootsmoker | 🟢 Both | 47-53 |
+| **Smoldering Embers** <sub>900103</sub> | Master Smith Burninate | 🟢 Both | 47-53 |
 
 </details>
 
 <details>
-<summary><b>Blasted Lands</b> &nbsp;·&nbsp; 2 quests &nbsp;·&nbsp; levels 47-56</summary>
+<summary><b>Blasted Lands</b> &nbsp;·&nbsp; 3 quests &nbsp;·&nbsp; levels 47-56</summary>
 
 | Quest | Giver | Faction | Levels |
 |---|---|---|:---:|
 | **Felbeast Hides** <sub>900008</sub> | Kum\'isha the Collector | 🟢 Both | 47-56 |
 | **Scorpok Menace** <sub>900009</sub> | Kum\'isha the Collector | 🟢 Both | 47-56 |
+| **Crystalhide Scales** <sub>900104</sub> | Kum\'isha the Collector | 🟢 Both | 48-55 |
 
 </details>
 
